@@ -1,0 +1,45 @@
+ID: your-app
+_schema-version: '3.1'
+version: 1.0.0
+
+modules:
+  - name: adding-businesslogic-in-serverside
+    type: nodejs
+    path: ./srv
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: adding-businesslogic-in-serverside-service
+    properties:
+      memory: 512M
+
+  - name: adding-businesslogic-in-serverside-fiori
+    type: html5
+    path: ./app
+    parameters:
+      buildpack: html5_buildpack
+    requires:
+      - name: adding-businesslogic-in-serverside
+    properties:
+      memory: 256M
+
+  - name: Adding_BusinessLogic_in_serverside-srv
+    type: nodejs
+    path: gen/srv
+    requires:
+      - name: adding-businesslogic-in-serverside-service
+
+resources:
+  - name: adding-businesslogic-in-serverside-service
+    type: com.sap.xs.hdi-container
+    parameters:
+      service-plan: hdi-shared
+      service: hana
+
+  # - name: Adding_BusinessLogic_in_serverside-auth
+  #   type: xsuaa
+  #   parameters:
+  #     service-plan: application
+  #     xsappname: "Adding_BusinessLogic_in_serverside-${org}-${space}"
+  #     tenant-mode: dedicated
+  #     path: ./xs-security.json

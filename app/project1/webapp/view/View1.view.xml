@@ -1,0 +1,61 @@
+<mvc:View controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:ui="sap.ui.table"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <form:SimpleForm id="formId" editable="true">
+                <Label id="_IDGenLabel1" text="Employee Name" />
+                <Input id="nameInput" width="20%" value=""/>
+                <Label id="_IDGenLabel2" text="Age" />
+                <Input id="ageInput" type="Number" width="20%" value=""/>
+                <Label id="_IDGenLabel3" text="Department" />
+                <Input id="departmentInput" width="20%" value=""/>
+                <Label id="_IDGenLabel4" text="Salary" />
+                <Input id="salaryInput" type="Number" width="20%" value=""/>
+            </form:SimpleForm>
+            <Toolbar id="tbar1">
+                <ToolbarSpacer id="tbspacer1"/>
+                <Button id="btInsert" text="Insert" icon="sap-icon://add" press="onPressInsert" type="Emphasized"/>
+                <Button id="btDelete" text="Delete" icon="sap-icon://delete" press="onPressDelete" type="Emphasized"/>
+            </Toolbar>
+            <ui:Table id="EmpTable" ariaLabelledBy="title" title="Family members details related to Employee"
+                      rows="{EmpModel>/TableDetails}" enableColumnFreeze="true">
+                <ui:columns>
+                    <ui:Column id="c1" width="6%" hAlign="Center">
+                        <Label id="l1" text="S.No" textAlign="Center" width="100%"/>
+                        <ui:template>
+                            <Text id="text1" text="{EmpModel>SiNo}" />
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column id="c2" width="15%" hAlign="Center">
+                        <Label id="l2" text="Name(s)" textAlign="Center" width="100%"/>
+                        <ui:template>
+                            <Input id="text2" value="{EmpModel>Name}"/>
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column id="c3" width="25%" hAlign="Center">
+                        <Label id="l3" text="Relationship with Employee" textAlign="Center" width="100%"/>
+                        <ui:template>
+                            <Input id="text3" value="{EmpModel>Relationship}"/>
+                        </ui:template>
+                    </ui:Column>
+                    <ui:Column id="c4" width="6%" hAlign="Center">
+                        <Label id="l4" text="Age" width="100%" textAlign="Center"/>
+                        <ui:template>
+                            <Input id="text4" value="{EmpModel>Age}" type="Number"/>
+                        </ui:template>
+                    </ui:Column>
+                </ui:columns>
+            </ui:Table>
+        </content>
+        <footer>
+            <OverflowToolbar id="MainOverFlowToolbar" class="sapUiMediumMarginTop">
+                <ToolbarSpacer id="_IDGenToolbarSpacer"/>
+                <Button id="_IDGenButton" text="Submit" press="onSubmit" type="Emphasized"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
