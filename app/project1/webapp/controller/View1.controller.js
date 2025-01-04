@@ -11,6 +11,7 @@ sap.ui.define([
             this.getView().setModel(oEmpModel, "EmpModel");
             this.getView().getModel("EmpModel").setProperty("/TableDetails", []);
         },
+        // onText(){},
 
         onPressInsert: function () {
             var oTable = this.getView().byId("EmpTable");
