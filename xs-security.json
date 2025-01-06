@@ -1,0 +1,27 @@
+{
+  "xsappname": "Adding_BusinessLogic_in_serverside",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.User and Role Administrator",
+      "description": "scope for edit"
+    },
+    {
+      "name": "$XSAPPNAME.User and Role Auditor",
+      "description": "scope for view"
+    }
+    
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "Viewer",
+      "description": "role for viewer",
+      "scope-references": ["$XSAPPNAME.User and Role Auditor"]
+    },
+    {
+      "name": "Editor",
+      "description": "role for editor",
+      "scope-references": ["$XSAPPNAME.User and Role Administrator"]
+    }
+  ]
+}

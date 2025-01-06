@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v2/employee/",
+        "uri": "/odata/v2/Employee/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -64,12 +64,7 @@
       },
       "": {
         "dataSource": "mainService",
-        "preload": true,
-        "settings": {
-          "operationMode": "Server",
-          "autoExpandSelect": true,
-          "earlyRequests": true
-        }
+        "preload": true
       }
     },
     "resources": {

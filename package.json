@@ -27,6 +27,7 @@
         "kind": "sqlite",
         "model": "*"
       }
+      
     }
   }
 }

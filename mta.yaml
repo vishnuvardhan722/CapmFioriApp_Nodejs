@@ -28,6 +28,7 @@ modules:
     path: gen/srv
     requires:
       - name: adding-businesslogic-in-serverside-service
+      - name: Adding_BusinessLogic_in_serverside-auth
 
 resources:
   - name: adding-businesslogic-in-serverside-service
@@ -35,7 +36,15 @@ resources:
     parameters:
       service-plan: hdi-shared
       service: hana
-
+  - name: Adding_BusinessLogic_in_serverside-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: Adding_BusinessLogic_in_serverside
+        tenant-mode: dedicated
   # - name: Adding_BusinessLogic_in_serverside-auth
   #   type: xsuaa
   #   parameters:
